@@ -7,6 +7,8 @@ services:
   startCommand: "./sleep.sh"
   envVars:
   - fromGroup: conc-settings
+  - key: TEST_SYNC
+    sync: false
 
 envVarGroups:
 - name: conc-settings
