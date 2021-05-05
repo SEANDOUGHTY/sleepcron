@@ -1,0 +1,23 @@
+services:
+- type: cron
+  name: sleepcron
+  env: node
+  schedule: "*/1 * * * *"
+  buildCommand: "yarn"
+  startCommand: "./sleep.sh"
+  envVars:
+  - fromGroup: conc-settings
+
+envVarGroups:
+- name: conc-settings
+  envVars:
+  - key: CONCURRENCY
+    value: 2
+  - key: SECRET
+    generateValue: true
+  - key: USER_PROVIDED_SECRET
+    sync: false
+- name: stripe
+  envVars:
+  - key: STRIPE_API_URL
+    value: https://api.stripe.com/v2
