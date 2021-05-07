@@ -1,7 +1,6 @@
 services:
 - type: cron
   name: sleepcron
-  branch: master
   env: node
   schedule: "*/1 * * * *"
   buildCommand: "yarn"
